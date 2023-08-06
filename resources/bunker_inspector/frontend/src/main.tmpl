@@ -1,0 +1,17 @@
+(ns {{top/ns}}.main
+ (:require [reagent.dom :as dom]
+            [reagent.core :as r]
+            [re-frame.core :as re]
+            [re-frame.db :refer [app-db]]
+            [{{raw-name}}.config :as config]
+            [{{raw-name}}.http :as http]
+            [clojure.string :as str]))
+
+(defn root []
+  [:div [:p "Hello!"]])
+
+(defn app []
+  (dom/render [root]
+              (. js/document (getElementById "root"))))
+
+(defn init [] (app))

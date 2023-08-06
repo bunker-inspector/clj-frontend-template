@@ -1,0 +1,22 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojurescript {:mvn/version "1.11.60"}
+        org.clojure/clojure {:mvn/version "1.11.1"}
+        reagent/reagent {:mvn/version "1.1.1"}
+        re-frame/re-frame {:mvn/version "1.3.0"}
+        cljs-http/cljs-http {:mvn/version "0.1.46"}
+        cljsjs/react {:mvn/version "17.0.2-0"}}
+
+ :aliases
+ {:cljs
+  {:extra-deps {thheller/shadow-cljs {:mvn/version "2.25.2"}
+                cider/piggieback {:mvn/version "0.5.3"}}}
+
+  :test
+  {:extra-paths ["test"]
+   :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
+                io.github.cognitect-labs/test-runner
+                {:git/tag "v0.5.1" :git/sha "dfb30dd"}}}
+  :build {:deps {io.github.clojure/tools.build
+                 {:git/tag "v0.9.2" :git/sha "fe6b140"}
+                 slipset/deps-deploy {:mvn/version "0.2.0"}}
+          :ns-default build}}}

@@ -1,0 +1,12 @@
+{:deps {:aliases [:cljs]}
+
+ :dev-http {8080 "public"}
+
+ :builds
+ {:client
+  {:target :browser
+   :modules {:main {:init-fn {{top/ns}}.main/init}}
+   :closure-defines {{{top/ns}}.config/CLIENTURL #shadow/env ["CLIENT_URL" "http://localhost:8080"]
+                     {{top/ns}}.config/SERVERURL #shadow/env ["SERVER_URL" "http://localhost:3001"]}
+
+   :devtools {:after-load {{top/ns}}.main/init}}}}
